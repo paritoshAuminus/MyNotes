@@ -20,9 +20,13 @@ INSTALLED_APPS = [
 
 ```python
 REST_FRAMEWORK = {
+    # Authentication = WHO the user is
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ),
+
+    # Permissions = WHAT the user can do
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
