@@ -26,6 +26,60 @@ A response can be:
 
 # DJANGO CORE VIEWS
 
+### Diagramatic representation of all views
+
+```python
+# MORE WORK / MORE CONTROL
+│
+│  # Function-Based View (FBV)
+│  "I handle everything myself"
+│
+│  # Example:
+│  @api_view(['GET'])
+│  def health_check(request):
+│      return Response({"ok": True})
+│
+│
+│  # APIView
+│  "Class-based, still manual"
+│
+│  # Example:
+│  class LoginView(APIView):
+│      def post(self, request):
+│          serializer = LoginSerializer(data=request.data)
+│          serializer.is_valid(raise_exception=True)
+│          return Response(serializer.validated_data)
+│
+│
+│  # GenericAPIView + Mixins
+│  "Shared plumbing, explicit verbs"
+│
+│  # Example:
+│  class PostView(GenericAPIView,
+│                 ListModelMixin,
+│                 CreateModelMixin):
+│      queryset = Post.objects.all()
+│      serializer_class = PostSerializer
+│
+│      def get(self, request):
+│          return self.list(request)
+│
+│      def post(self, request):
+│          return self.create(request)
+│
+│
+│  # Concrete Generic Views
+│  "CRUD without thinking"
+│
+│  # Example:
+│  class PostListCreateView(ListCreateAPIView):
+│      queryset = Post.objects.all()
+│      serializer_class = PostSerializer
+│
+│
+# LESS WORK / LESS CONTROL
+```
+
 ---
 
 ## 1. Function-Based Views (FBVs)

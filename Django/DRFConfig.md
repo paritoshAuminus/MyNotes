@@ -33,7 +33,7 @@ REST_FRAMEWORK = {
 }
 ```
 
-- Simple JWT config (boilerplate)
+- Simple JWT config (token lifespan)
 
 ```python
 SIMPLE_JWT = {
