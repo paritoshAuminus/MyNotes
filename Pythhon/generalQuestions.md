@@ -74,10 +74,70 @@ print(x)    # 10
 - A dict in python is a data structure used to store data in key-value pairs.
 - It allows fast access to values using unique keys.
 
-# Q 10. What will be the output of the following code? Explain why.
+# Q10. What will be the output of the following code? Explain why.
 
 ```python
 my_dict = {"a": 1, "b": 2}
 my_dict["a"] = 5
 print(my_dict)  # {"a": 5, "b": 2}
 ```
+
+# Q11. What is the difference between `is` and `==` in python?
+
+- `==` checks whether two values are equal
+- `is` checks whether two variables or values are referring to the same **memory location**
+
+## Example
+
+- Never use `string` or `integer` in example for `is` and `==`
+- Always use `list` with same `integer` values
+
+```python
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a == b)
+print(a is b)
+```
+
+# Q12. Write a python program to check whether a number is even or odd.
+
+```python
+def numChecker(num):
+    if num % 2 == 0:
+        print("Number is even")
+    else:
+        print("Number is odd")
+
+numChecker(2)   # even
+numChecker(3)   # odd
+```
+
+# Q13. What is a function and why do we use functions in programming?
+
+# Q14. What is the difference between a parameter and an argument in functions?
+
+# Q15. What is an exception? How do you handle exceptions in python? Give a short example.
+
+- An exception is a runtime error that occurs during program execution.
+- In python exceptions are handled using `except`, `else` and `finally` blocks
+
+```python
+try:
+    result = 5/0
+except ZeroDivisionError:
+    print("A number cannot be devided by zero")
+```
+# Q16. What is difference between compile time error and runtime error?
+
+# Q17. What is difference between compiler and an interpreter.
+
+- Compiler translates the entire source code into machine code **before** execution.
+- Interpreter translates and executes the code **line by line during** execution.
+- Interpreter executes code without generating a separate compiled file.
+
+# Q18. Difference between shallow copy and deep copy in python
+
+# Q19. What is a set in python? Mention two important properties of set.
+
+# Q20. What is the difference a list and a set in python. Mention at least three differences.
